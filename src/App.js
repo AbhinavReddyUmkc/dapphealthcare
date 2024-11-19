@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import LandingPage from "./components/LandingPage";
+import DoctorLogin from "./components/DoctorLogin";
+import PatientLogin from "./components/PatientLogin";
+import DoctorPage from "./components/DoctorPage";
+import PatientPage from "./components/PatientPage";
+import AddDoctor from "./components/AddDoctor";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        {/* Route for the landing page */}
+        <Route path="/" element={<LandingPage />} />
+        
+        {/* Route for doctor login */}
+        <Route path="/doctor-login" element={<DoctorLogin />} />
+        
+        {/* Route for patient login */}
+        <Route path="/patient-login" element={<PatientLogin />} />
+        
+        {/* Route for the doctor's dashboard page */}
+        <Route path="/doctor-page" element={<DoctorPage />} />
+        
+        {/* Route for the patient's dashboard page */}
+        <Route path="/patient-page" element={<PatientPage />} />
+
+        {/* Route for the patient's dashboard page */}
+        <Route path="/add-doctor" element={<AddDoctor />} />
+      </Routes>
     </div>
   );
 }
